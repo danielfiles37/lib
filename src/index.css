@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 全局样式 */
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #020617;
+  color: #e2e8f0;
+  overflow: hidden;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* React Flow 自定义样式 */
+.react-flow__node {
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.react-flow__edge-path {
+  stroke-width: 2;
+}
+
+.react-flow__controls {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.react-flow__controls-button {
+  background: #1e293b;
+  border-bottom: 1px solid #334155;
+  fill: #94a3b8;
+  width: 32px;
+  height: 32px;
+}
+
+.react-flow__controls-button:hover {
+  background: #334155;
+  fill: #e2e8f0;
+}
+
+.react-flow__minimap {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.react-flow__background {
+  background: #020617;
+}
+
+/* 动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 选中节点效果 */
+.react-flow__node.selected .scene-node {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 框选框样式 - 虚线框 */
+.react-flow__selection {
+  background: rgba(139, 92, 246, 0.08) !important;
+  border: 2px dashed #8b5cf6 !important;
+  border-radius: 4px !important;
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* 框选框动画 */
+@keyframes selection-dash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+/* 选中节点的边框效果 */
+.react-flow__node.selected {
+  outline: 2px solid #8b5cf6;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* 多选时的节点样式 */
+.react-flow__node.selectable:hover {
+  outline: 1px dashed #8b5cf6;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
